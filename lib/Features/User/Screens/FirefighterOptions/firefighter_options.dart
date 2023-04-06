@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../Controllers/message_sending.dart';
@@ -16,7 +17,7 @@ class FireFighterOptions extends StatelessWidget {
     final smsController = Get.put(messageController());
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -25,7 +26,7 @@ class FireFighterOptions extends StatelessWidget {
           ),
         ),
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(Get.height * 0.13),
+            preferredSize: Size.fromHeight(Get.height * 0.1),
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
               child: Column(
@@ -36,7 +37,7 @@ class FireFighterOptions extends StatelessWidget {
                       Image(
                           image: const AssetImage(
                               "assets/logos/emergencyAppLogo.png"),
-                          height: Get.height * 0.1),
+                          height: Get.height * 0.08),
                     ],
                   ),
                   Container(
@@ -70,11 +71,15 @@ class FireFighterOptions extends StatelessWidget {
                     Radius.circular(15.0),
                   ),
                 ),
-                tileColor: Colors.blue.shade300,
-                leading: const Icon(Icons.map),
-                title: const Text('Fire Station Map Display'),
+                tileColor: Color(color),
+                leading: const Icon(Icons.map, color: Colors.yellowAccent),
+                title: const Text('Fire Station Map Display',style: TextStyle(
+                  color: Colors.white
+                ),),
                 subtitle:
-                    const Text('Find the nearest fire station on the map'),
+                    const Text('Find the nearest fire station on the map',style: TextStyle(
+                      color: Colors.white
+                    ),),
                 onTap: () async {
                   Position position = await Geolocator.getCurrentPosition(
                       desiredAccuracy: LocationAccuracy.high);
@@ -111,11 +116,16 @@ class FireFighterOptions extends StatelessWidget {
                       Radius.circular(15.0),
                     ),
                   ),
-                  tileColor: Colors.blue.shade600,
-                  leading: const Icon(Icons.call),
-                  title: const Text('Call'),
+                  tileColor: Color(color),
+                  leading: const Icon(Icons.call,color: Colors.yellowAccent,),
+                  title: const Text('Call',style: TextStyle(
+                    color: Colors.white
+                  ),),
                   subtitle:
-                      const Text('Directly call the fire station helpline'),
+                      const Text('Directly call the fire station helpline',style: TextStyle(
+                        color: Colors.white
+
+                      ),),
                   onTap: () async {
                     if (await Permission.phone.request().isGranted) {
                       debugPrint("In making phone call");
@@ -136,10 +146,14 @@ class FireFighterOptions extends StatelessWidget {
                   ),
                 ),
                 tileColor: const Color(0xfff85757),
-                leading: const Icon(Icons.message),
-                title: const Text('Send Distress Message'),
+                leading: const Icon(Icons.message,color: Colors.white,),
+                title: const Text('Send Distress Message',style: TextStyle(
+                  color: Colors.white
+                ),),
                 subtitle:
-                    const Text('Send a distress message to emergency contacts'),
+                    const Text('Send a distress message to emergency contacts',style: TextStyle(
+                      color: Colors.white
+                    ),),
                 onTap: () async {
                   // await BackgroundSms.sendMessage(
                   //     phoneNumber: "03325106960",
