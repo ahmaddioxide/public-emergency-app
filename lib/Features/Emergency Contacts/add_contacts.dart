@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:public_emergency_app/Features/User/Screens/Profile/profile_screen.dart';
 import 'package:public_emergency_app/Features/User/Screens/bottom_nav.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -60,7 +61,7 @@ class _add_contactState extends State<add_contact> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -69,7 +70,7 @@ class _add_contactState extends State<add_contact> {
           ),
         ),
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(100),
+            preferredSize: Size.fromHeight(Get.height * 0.1),
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
               child: Column(
@@ -79,17 +80,17 @@ class _add_contactState extends State<add_contact> {
                     children: [
                       Center(
                         child: SizedBox.fromSize(
-                          size: Size(56, 56),
+                          size: const Size(56, 56),
                           child: ClipOval(
                             child: Material(
-                              color: Colors.lightBlueAccent,
+                              color: Color(color),
                               child: InkWell(
                                 splashColor: Colors.white,
                                 onTap: () {  Get.to(() => NavBar());
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
+                                  children: const <Widget>[
                                     Icon(Icons.arrow_back, color: Colors.white, size: 30,),
                                   ],
                                 ),
@@ -99,12 +100,12 @@ class _add_contactState extends State<add_contact> {
                         ),
                       ),
                       SizedBox(
-                        width: Get.width * 0.3,
+                        width: Get.width * 0.25,
                       ) ,
                       Image(
                           image: const AssetImage(
                               "assets/logos/emergencyAppLogo.png"),
-                          height: Get.height * 0.1),
+                          height: Get.height * 0.08),
                     ],
                   ),
                   Container(
@@ -131,11 +132,11 @@ class _add_contactState extends State<add_contact> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text(
+               Text(
                 "Add Emergency Contacts here",
                 style: TextStyle(
                     fontSize: 20,
-                    color: Colors.blue,
+                    color: Color(color),
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -233,10 +234,10 @@ class _add_contactState extends State<add_contact> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15.0),
                         ),
-                        backgroundColor: Colors.blue,
+                        backgroundColor: Color(color)
                         // foreground
                       ),
-                      child: Text("Save"),
+                      child: const Text("Save"),
                       onPressed: () async {
                         var contact1 = contact1controller.text.toString();
                         var contact2 = contact2controller.text.toString();

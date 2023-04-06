@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:public_emergency_app/Features/Login/login_screen.dart';
 
 class ForgetFormWidget extends StatefulWidget {
@@ -56,7 +57,7 @@ class _ForgetFormWidgetState extends State<ForgetFormWidget> {
             const SizedBox(height: 30),
             TextFormField(
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.person_outline_rounded),
+                prefixIcon: const Icon(Icons.person_outline_rounded),
                 labelText: "Full Name",
                 hintText: "Full Name",
                 border:
@@ -75,7 +76,7 @@ class _ForgetFormWidgetState extends State<ForgetFormWidget> {
                 return null;
               },
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: const Icon(Icons.email_outlined),
                 labelText: "Email",
                 hintText: "Email",
                 border:
@@ -90,7 +91,7 @@ class _ForgetFormWidgetState extends State<ForgetFormWidget> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors.lightBlueAccent,
+                    backgroundColor: Color(color),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
                 onPressed: () {

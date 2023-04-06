@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import '../../../../Common Widgets/form_footer.dart';
 import 'forget_password_form.dart';
 
@@ -12,7 +13,7 @@ class ForgetPassword extends StatelessWidget {
     return Scaffold(
       // extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -21,27 +22,27 @@ class ForgetPassword extends StatelessWidget {
           ),
         ),
         bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(110.0),
+            preferredSize:  Size.fromHeight(Get.height * 0.1),
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
               child: Column(
                 children: [
                   Row(
                     children: [
-                      SizedBox(width: 30,),
+                      const SizedBox(width: 30,),
                       Center(
                         child: SizedBox.fromSize(
-                          size: Size(36, 36),
+                          size: const Size(36, 36),
                           child: ClipOval(
                             child: Material(
-                              color: Colors.lightBlueAccent,
+                              color: Color(color),
                               child: InkWell(
                                 splashColor: Colors.white,
                                 onTap: () {  Get.back();
                                 },
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.center,
-                                  children: <Widget>[
+                                  children: const <Widget>[
                                     Icon(Icons.arrow_back, color: Colors.white, size: 30,),
                                   ],
                                 ),
@@ -51,7 +52,7 @@ class ForgetPassword extends StatelessWidget {
                         ),
                       ),
 
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       // SizedBox(width: 15,),
                       // Center(
                       //   child: SizedBox.fromSize(
@@ -79,15 +80,15 @@ class ForgetPassword extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
 
-                      Image(
+                       Image(
                           image:
-                              AssetImage("assets/logos/emergencyAppLogo.png"),
-                          height: 100),
+                             const AssetImage("assets/logos/emergencyAppLogo.png"),
+                          height: Get.height * 0.08,),
                       Container(
                         margin: const EdgeInsets.only(top: 8),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text(
                               "Forget Password",
                               style: TextStyle(
