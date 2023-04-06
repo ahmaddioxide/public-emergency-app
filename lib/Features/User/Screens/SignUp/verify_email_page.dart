@@ -3,12 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:public_emergency_app/Features/Ambulance/ambulance_dashboard.dart';
-import 'package:public_emergency_app/Features/FireFighter/firefighter_dashboard.dart';
-import 'package:public_emergency_app/Features/Police/police_dashboard.dart';
-import 'package:public_emergency_app/Features/User/Screens/DashBoard/user_dashboard.dart';
 import '../../../../User.dart';
 import '../../../Login/login_screen.dart';
+import '../../../Responder/responder_dashboard.dart';
 import '../../controllers/session_controller.dart';
 import '../bottom_nav.dart';
 
@@ -18,13 +15,12 @@ class VerifyEmailPage extends StatefulWidget {
   @override
   State<VerifyEmailPage> createState() => _VerifyEmailPageState();
 }
-
 class _VerifyEmailPageState extends State<VerifyEmailPage> {
   bool isEmailVerified = false;
   Timer? timer;
   String userType = "";
   bool canResendEmail = true;
-  Widget Screen= const NavBar();
+  Widget Screen = const NavBar();
   Future<String> getUserType() async {
     var firebaseUser = FirebaseAuth.instance.currentUser;
     var ref =
@@ -46,19 +42,19 @@ class _VerifyEmailPageState extends State<VerifyEmailPage> {
     await getUserType().then((value) {
       if (userType == "Police") {
         setState(() {
-          Screen = const PoliceDashboard();
+          Screen = const ResponderDashboard();
         });
-        return const PoliceDashboard();
+        return const ResponderDashboard();
       } else if (userType == "FireFighter") {
         setState(() {
-          Screen = const FirefighterDashboard();
+          Screen = const ResponderDashboard();
         });
-        return const FirefighterDashboard();
+        return const ResponderDashboard();
       } else if (userType == "Ambulance") {
         setState(() {
-          Screen = const AmbulanceDashboard();
+          Screen = const ResponderDashboard();
         });
-        return const AmbulanceDashboard();
+        return const ResponderDashboard();
       } else {
         setState(() {
           Screen = const NavBar();

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../Features/Login/login_screen.dart';
@@ -81,24 +82,37 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           });
         },
         children: <Widget>[
-          buildPage(
-              color: Colors.white,
-              url: "assets/Ambulance.png",
-              title: 'Emergency Patrol',
-              subtitle:
-                  'Our app provides a platform for quick response services from police, ambulance, and firefighters.'),
-          buildPage(
-              color: Colors.white,
-              url: 'assets/Quick.png',
-              title: 'Easy and Fast Response',
-              subtitle:
-                  'Our app allows you to quickly send out an emergency request with just a few taps, and our responders will be alerted to your location within seconds.'),
-          buildPage(
-              color: Colors.white,
-              url: 'assets/Choose.png',
-              title: 'Choose Your Responder',
-              subtitle:
-                  'As a responder, you can choose your area of expertise and set your availability status. This allows citizens to see which responders are available and respond to emergency requests accordingly.'),
+          SizedBox(
+            height: Get.height * .001,
+            width: Get.width * .001,
+            child: buildPage(
+
+                color: Colors.white,
+                url: "assets/Ambulance.png",
+                title: 'Emergency Patrol',
+                subtitle:
+                    'Our app provides a platform for quick response services from police, ambulance, and firefighters.'),
+          ),
+          SizedBox(
+            height: Get.height * .001,
+            width: Get.width * .001,
+            child: buildPage(
+                color: Colors.white,
+                url: 'assets/Quick.png',
+                title: 'Easy and Fast Response',
+                subtitle:
+                    'Our app allows you to quickly send out an emergency request with just a few taps, and our responders will be alerted to your location within seconds.'),
+          ),
+          SizedBox(
+            height: Get.height * .001,
+            width: Get.width * .001,
+            child: buildPage(
+                color: Colors.white,
+                url: 'assets/Choose.png',
+                title: 'Choose Your Responder',
+                subtitle:
+                    'As a responder, you can choose your area of expertise and set your availability status. This allows citizens to see which responders are available and respond to emergency requests accordingly.'),
+          ),
         ],
       ),
       bottomSheet: lastPage
@@ -108,11 +122,11 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 // Firebase.initializeApp().then((value) => Get.put(AuthenticationRepository()));
                 if (user != null) {
                   SessionController().userid = user.uid.toString();
-                  Timer(const Duration(seconds: 3),
+                  Timer(const Duration(milliseconds: 1),
                       () => Get.offAll(() => const VerifyEmailPage()));
                 } else {
                   // print("hello");
-                  Timer(const Duration(seconds: 3),
+                  Timer(const Duration(milliseconds: 1),
                       () => Get.offAll(() => const LoginScreen()));
                 }
               },
@@ -122,9 +136,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 child: Container(
                     height: Get.height * .09,
                     width: Get.width * .65,
-                    decoration: const BoxDecoration(
-                      color: Colors.lightBlueAccent,
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                    decoration: BoxDecoration(
+                      color: Color(color),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                     ),
                     child: const Center(
                         child: Text('Get Started',
@@ -145,12 +159,12 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         // Firebase.initializeApp().then((value) => Get.put(AuthenticationRepository()));
                         if (user != null) {
                           SessionController().userid = user.uid.toString();
-                          Timer(Duration(seconds: 3),
-                              () => Get.offAll(() => VerifyEmailPage()));
+                          Timer(const Duration(milliseconds: 1),
+                              () => Get.offAll(() => const VerifyEmailPage()));
                         } else {
                           // print("hello");
-                          Timer(Duration(seconds: 3),
-                              () => Get.offAll(() => LoginScreen()));
+                          Timer(const Duration(milliseconds: 1),
+                              () => Get.offAll(() => const LoginScreen()));
                         }
 
                         // Navigator.push(
@@ -158,10 +172,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                         //   MaterialPageRoute(builder: (context) =>  const LoginScreen()),
                         // );
                       },
-                      child: const Text(
+                      child: Text(
                         'Skip',
-                        style: TextStyle(
-                            fontSize: 25, color: Colors.lightBlueAccent),
+                        style: TextStyle(fontSize: 25, color: Color(color)),
                       )),
                 ),
                 Padding(
@@ -188,7 +201,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                           duration: const Duration(milliseconds: 500),
                           curve: Curves.easeInOut);
                     },
-                    backgroundColor: Colors.lightBlueAccent,
+                    backgroundColor: Color(color),
                     child: const Center(
                       child: Text(
                         '>',

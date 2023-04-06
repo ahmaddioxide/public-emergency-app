@@ -126,7 +126,6 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                 },
               ),
             ),
-            SizedBox(height: Get.height * 0.02),
             Card(
               child: ListTile(
                 shape: const RoundedRectangleBorder(
@@ -164,7 +163,6 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                 },
               ),
             ),
-            SizedBox(height: Get.height * 0.02),
             Card(
               child: ListTile(
                 shape: const RoundedRectangleBorder(
