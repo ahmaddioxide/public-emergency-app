@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:public_emergency_app/Features/User/Controllers/message_sending.dart';
 import 'package:public_emergency_app/Features/User/Screens/DashBoard/grid_dash.dart';
 
+import '../../../../Common Widgets/constants.dart';
 import '../../Controllers/session_controller.dart';
 // import 'login_screen.dart';
 
@@ -33,7 +34,7 @@ class _UserDashboardState extends State<UserDashboard> {
       // ),
 
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -42,7 +43,7 @@ class _UserDashboardState extends State<UserDashboard> {
           ),
         ),
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(100),
+            preferredSize:  Size.fromHeight(Get.height * 0.1),
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
               child: Column(
@@ -53,7 +54,7 @@ class _UserDashboardState extends State<UserDashboard> {
                       Image(
                           image: const AssetImage(
                               "assets/logos/emergencyAppLogo.png"),
-                          height: Get.height * 0.1),
+                          height: Get.height * 0.08),
                     ],
                   ),
                   Container(

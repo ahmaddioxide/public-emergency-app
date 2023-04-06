@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../Controllers/message_sending.dart';
@@ -21,7 +22,7 @@ class _PoliceOptionsState extends State<PoliceOptions> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -30,7 +31,7 @@ class _PoliceOptionsState extends State<PoliceOptions> {
           ),
         ),
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(Get.height * 0.13),
+            preferredSize: Size.fromHeight(Get.height * 0.1),
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
               child: Column(
@@ -41,7 +42,7 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                       Image(
                           image: const AssetImage(
                               "assets/logos/emergencyAppLogo.png"),
-                          height: Get.height * 0.1),
+                          height: Get.height * 0.08),
                     ],
                   ),
                   Container(
@@ -75,21 +76,35 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                     Radius.circular(15.0),
                   ),
                 ),
-                tileColor: Colors.blue.shade300,
-                leading: const Icon(Icons.map),
-                title: const Text('Police Station Map Display'),
-                subtitle:
-                    const Text('Find the nearest police station on the map'),
+                tileColor: Color(color),
+                leading: const Icon(
+                  Icons.map,
+                  color: Colors.yellowAccent,
+                ),
+                title: const Text(
+                  'Police Station Map Display',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: const Text(
+                  'Find the nearest police station on the map',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
                 // trailing: Icon(Icons.police),
                 onTap: () async {
                   Position position = await Geolocator.getCurrentPosition(
                       desiredAccuracy: LocationAccuracy.high);
-                  var lat= position.latitude;
-                  var long= position.longitude;
+                  var lat = position.latitude;
+                  var long = position.longitude;
                   String url = '';
                   String urlAppleMaps = '';
                   if (Platform.isAndroid) {
-                    url = "https://www.google.com/maps/search/police+station/@$lat,$long,12.5z";
+                    url =
+                        "https://www.google.com/maps/search/police+station/@$lat,$long,12.5z";
                     if (await canLaunchUrl(Uri.parse(url))) {
                       await launchUrl(Uri.parse(url));
                     } else {
@@ -97,7 +112,8 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                     }
                   } else {
                     urlAppleMaps = 'https://maps.apple.com/?q=$lat,$long';
-                    url = 'comgooglemaps://?saddr=&daddr=$lat,$long&directionsmode=driving';
+                    url =
+                        'comgooglemaps://?saddr=&daddr=$lat,$long&directionsmode=driving';
                     if (await canLaunchUrl(Uri.parse(url))) {
                       await launchUrl(Uri.parse(url));
                     } else if (await canLaunchUrl(Uri.parse(urlAppleMaps))) {
@@ -110,6 +126,7 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                 },
               ),
             ),
+            SizedBox(height: Get.height * 0.02),
             Card(
               child: ListTile(
                 shape: const RoundedRectangleBorder(
@@ -117,11 +134,24 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                     Radius.circular(15.0),
                   ),
                 ),
-                tileColor: Colors.blue.shade600,
-                leading: const Icon(Icons.call),
-                title: const Text('Call'),
-                subtitle:
-                    const Text('Directly call the police station helpline'),
+                tileColor: Color(color),
+                leading: const Icon(
+                  Icons.call,
+                  color: Colors.yellowAccent,
+                ),
+                title: const Text(
+                  'Call Police Station Helpline',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: const Text(
+                  'Directly call the police station helpline',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
                 onTap: () async {
                   if (await Permission.phone.request().isGranted) {
                     debugPrint("In making phone call");
@@ -134,6 +164,7 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                 },
               ),
             ),
+            SizedBox(height: Get.height * 0.02),
             Card(
               child: ListTile(
                 shape: const RoundedRectangleBorder(
@@ -142,12 +173,26 @@ class _PoliceOptionsState extends State<PoliceOptions> {
                   ),
                 ),
                 tileColor: const Color(0xfff85757),
-                leading: const Icon(Icons.message),
-                title: const Text('Send Distress Message'),
-                subtitle:
-                    const Text('Send a distress message to emergency contacts'),
+                leading: const Icon(
+                  Icons.message,
+                  color: Colors.white,
+                ),
+                title: const Text(
+                  'Send Distress Message',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                subtitle: const Text(
+                  'Send a distress message to emergency contacts',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
                 onTap: () {
-                  smsController.sendLocationViaSMS("Police Emergency\nSend Police at");
+                  smsController
+                      .sendLocationViaSMS("Police Emergency\nSend Police at");
                   // Add code here to send a distress message to emergency contacts
                 },
               ),

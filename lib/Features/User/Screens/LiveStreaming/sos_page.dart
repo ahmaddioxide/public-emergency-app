@@ -5,6 +5,7 @@ import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:public_emergency_app/Features/User/Controllers/session_controller.dart';
+import '../../../../Common Widgets/constants.dart';
 import '../../Controllers/message_sending.dart';
 import 'live_stream.dart';
 
@@ -34,7 +35,7 @@ class _LiveStreamUserState extends State<LiveStreamUser> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -43,7 +44,7 @@ class _LiveStreamUserState extends State<LiveStreamUser> {
           ),
         ),
         bottom: PreferredSize(
-            preferredSize: Size.fromHeight(Get.height * 0.12),
+            preferredSize: Size.fromHeight(Get.height * 0.1),
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
               child: Column(
@@ -54,7 +55,7 @@ class _LiveStreamUserState extends State<LiveStreamUser> {
                       Image(
                           image: const AssetImage(
                               "assets/logos/emergencyAppLogo.png"),
-                          height: Get.height * 0.1),
+                          height: Get.height * 0.08),
                     ],
                   ),
                   Container(
@@ -88,6 +89,7 @@ class _LiveStreamUserState extends State<LiveStreamUser> {
                 height: Get.height * 0.2,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                    elevation: 15,
                     backgroundColor: Colors.red,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
@@ -105,6 +107,23 @@ class _LiveStreamUserState extends State<LiveStreamUser> {
                   child: const Text("SOS", style: TextStyle(fontSize: 40)),
                 ),
               ),
+               SizedBox(
+                height: Get.height * 0.05,
+              ),
+              const Center(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  child: Text(
+                    "Press the button to send your location to the rescue headquarters and send distress sms to your emergency contacts",
+                    style: TextStyle(fontSize: 16,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey,
+                    ),
+                    textDirection: TextDirection.ltr,
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
             ],
           ),
         ),

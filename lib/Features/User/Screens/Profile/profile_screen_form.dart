@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 
 import '../../../Emergency Contacts/add_contacts.dart';
 import '../../Controllers/session_controller.dart';
@@ -43,10 +44,11 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text(
+                     Text(
                       "User Info",
                       style: TextStyle(
-                        color: Colors.lightBlueAccent,
+                        color: Color(color),
+                        fontWeight: FontWeight.bold,
                         fontSize: 20,
                       ),
                     ),
@@ -126,7 +128,7 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            backgroundColor: Colors.lightBlueAccent,
+                            backgroundColor: Color(color),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20))),
                         onPressed: () {
@@ -162,7 +164,7 @@ class _ProfileFormWidgetState extends State<ProfileFormWidget> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             foregroundColor: Colors.white,
-                            backgroundColor: Colors.lightBlueAccent,
+                            backgroundColor: Color(color),
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20))),
                         onPressed: () {

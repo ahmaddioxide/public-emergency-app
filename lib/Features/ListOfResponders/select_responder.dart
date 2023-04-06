@@ -4,18 +4,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'dart:math';
 import '../Response Screen/emergencies_screen.dart';
 import '../User/Screens/LiveStreaming/live_stream.dart';
 
 class SelectResponder extends StatefulWidget {
-  final userID;
-  final userLat;
-  final userLong;
-  final userAddress;
-  final userPhone;
-   SelectResponder({Key? key, this.userID, this.userLat, this.userLong, this.userAddress, this.userPhone}
+  final String userID;
+  final double userLat;
+  final double userLong;
+  final String userAddress;
+  final  userPhone;
+   const SelectResponder({Key? key, required this.userID, required this.userLat, required this.userLong, required this.userAddress, this.userPhone}
       ) : super(key: key);
 
   @override
@@ -40,7 +41,7 @@ class _SelectResponderState extends State<SelectResponder> {
     }
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -49,25 +50,25 @@ class _SelectResponderState extends State<SelectResponder> {
           ),
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(Get.height * 0.09),
+          preferredSize: Size.fromHeight(Get.height * 0.1),
           child: Container(
             padding: const EdgeInsets.only(bottom: 15),
             child: Row(
               children: [
-                SizedBox(width: 30,),
+                const SizedBox(width: 30,),
                 Center(
                   child: SizedBox.fromSize(
-                    size: Size(36, 36),
+                    size: const Size(36, 36),
                     child: ClipOval(
                       child: Material(
-                        color: Colors.lightBlueAccent,
+                        color: Color(color),
                         child: InkWell(
                           splashColor: Colors.white,
                           onTap: () {  Get.back();
                           },
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
+                            children: const <Widget>[
                               Icon(Icons.arrow_back, color: Colors.white, size: 30,),
                             ],
                           ),
@@ -77,7 +78,7 @@ class _SelectResponderState extends State<SelectResponder> {
                   ),
                 ),
 
-                SizedBox(width: 30,),
+                const SizedBox(width: 30,),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -155,7 +156,7 @@ class _SelectResponderState extends State<SelectResponder> {
                         var address = list[index]['address'];
                         var userId = list[index]['videoId'];
                       },
-                      tileColor: Colors.lightBlueAccent,
+                      tileColor: Color(color),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
                       ),

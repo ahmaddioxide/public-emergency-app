@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:public_emergency_app/Features/User/Screens/Profile/profile_screen_form.dart';
+import '../../../../Common Widgets/constants.dart';
 import '../../../Login/login_screen.dart';
 import '../../controllers/session_controller.dart';
 
@@ -21,9 +22,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
     return Scaffold(
       floatingActionButton:FloatingActionButton(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         foregroundColor: Colors.white,
-        shape: StadiumBorder(
+        shape: const StadiumBorder(
             side: BorderSide(
                 color: Colors.white24, width: 4)),
         onPressed: () { FirebaseAuth auth = FirebaseAuth.instance;
@@ -32,14 +33,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
           SessionController().userid = '';
           Get.offAll(() => const LoginScreen());
         });},
-        child: Icon(Icons.logout_outlined),
+        child: const Icon(Icons.logout_outlined),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endTop,
 
 
       extendBodyBehindAppBar: false,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
 
@@ -50,7 +51,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         ),
 
         bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(110.0),
+            preferredSize:  Size.fromHeight(Get.height * 0.1),
             child: Container(
               padding: const EdgeInsets.only(bottom: 15),
               child: Column(
@@ -59,7 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
 
-                      Image(image: AssetImage("assets/logos/emergencyAppLogo.png"), height: 100),
+                      Image(image: const AssetImage("assets/logos/emergencyAppLogo.png"), height: Get.height * 0.08),
                     ],
                   ),
 
@@ -67,7 +68,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     margin: const EdgeInsets.only(top: 8),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children:  [
+                      children:  const [
                         Text(
                           "Profile",
                           style: TextStyle(
@@ -87,7 +88,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: Container(
           padding: const EdgeInsets.all(30),
           child: Column(
-            children:  [
+            children: const [
               ProfileFormWidget(),
             ],
           ),

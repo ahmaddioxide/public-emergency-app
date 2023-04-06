@@ -1,9 +1,9 @@
-
 import 'dart:io';
 
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../ListOfResponders/select_responder.dart';
 import '../User/Screens/LiveStreaming/live_stream.dart';
@@ -21,11 +21,9 @@ class _EmergenciesScreenState extends State<EmergenciesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      
       extendBodyBehindAppBar: false,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -34,7 +32,7 @@ class _EmergenciesScreenState extends State<EmergenciesScreen> {
           ),
         ),
         bottom: PreferredSize(
-          preferredSize: Size.fromHeight(Get.height * 0.09),
+          preferredSize: Size.fromHeight(Get.height * 0.1),
           child: Container(
             padding: const EdgeInsets.only(bottom: 15),
             child: Column(
@@ -72,7 +70,8 @@ class _EmergenciesScreenState extends State<EmergenciesScreen> {
         padding: const EdgeInsets.only(top: 30),
         child: StreamBuilder(
           stream: ref.onValue,
-          builder: (BuildContext context, AsyncSnapshot<DatabaseEvent> snapshot) {
+          builder:
+              (BuildContext context, AsyncSnapshot<DatabaseEvent> snapshot) {
             if (snapshot.hasData) {
               DataSnapshot dataSnapshot = snapshot.data!.snapshot;
               Map<dynamic, dynamic> map = dataSnapshot.value as dynamic ?? {};
@@ -84,8 +83,9 @@ class _EmergenciesScreenState extends State<EmergenciesScreen> {
                 itemCount: snapshot.data!.snapshot.children.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    margin:
-                        const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                    margin: EdgeInsets.symmetric(
+                        vertical: Get.height * 0.015,
+                        horizontal: Get.width * 0.018),
                     child: ListTile(
                         // onTap: () async{
                         //   var lat= list[index]['lat'];
@@ -116,14 +116,13 @@ class _EmergenciesScreenState extends State<EmergenciesScreen> {
                           var long = double.parse(list[index]['long']);
                           var address = list[index]['address'];
                           var userId = list[index]['videoId'];
-                          //ab dekh to
                           Get.to(() => SelectResponder(
                               userLat: lat,
                               userLong: long,
                               userAddress: address,
                               userID: userId));
                         },
-                        tileColor: Colors.lightBlueAccent,
+                        tileColor: Color(color),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(15),
                         ),
@@ -147,31 +146,34 @@ class _EmergenciesScreenState extends State<EmergenciesScreen> {
                           children: [
                             IconButton(
                               icon: const Icon(Icons.location_on,
-                                  color: Colors.orange, size: 25),
+                                  color: Colors.amberAccent, size: 25),
                               onPressed: () async {
-                                   var lat= list[index]['lat'];
-                                  var long= list[index]['long'];
-                                  String url = '';
-                                  String urlAppleMaps = '';
-                                  if (Platform.isAndroid) {
-                                    url = 'https://www.google.com/maps/search/?api=1&query=$lat,$long';
-                                    if (await canLaunchUrl(Uri.parse(url))) {
-                                      await launchUrl(Uri.parse(url));
-                                    } else {
-                                      throw 'Could not launch $url';
-                                    }
+                                var lat = list[index]['lat'];
+                                var long = list[index]['long'];
+                                String url = '';
+                                String urlAppleMaps = '';
+                                if (Platform.isAndroid) {
+                                  url =
+                                      'https://www.google.com/maps/search/?api=1&query=$lat,$long';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
                                   } else {
-                                    urlAppleMaps = 'https://maps.apple.com/?q=$lat,$long';
-                                    url = 'comgooglemaps://?saddr=&daddr=$lat,$long&directionsmode=driving';
-                                    if (await canLaunchUrl(Uri.parse(url))) {
-                                      await launchUrl(Uri.parse(url));
-                                    } else if (await canLaunchUrl(Uri.parse(urlAppleMaps))) {
-                                      await launchUrl(Uri.parse(urlAppleMaps));
-                                    } else {
-                                      throw 'Could not launch $url';
-                                    }
+                                    throw 'Could not launch $url';
                                   }
-
+                                } else {
+                                  urlAppleMaps =
+                                      'https://maps.apple.com/?q=$lat,$long';
+                                  url =
+                                      'comgooglemaps://?saddr=&daddr=$lat,$long&directionsmode=driving';
+                                  if (await canLaunchUrl(Uri.parse(url))) {
+                                    await launchUrl(Uri.parse(url));
+                                  } else if (await canLaunchUrl(
+                                      Uri.parse(urlAppleMaps))) {
+                                    await launchUrl(Uri.parse(urlAppleMaps));
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                }
                               },
                             ),
                             IconButton(

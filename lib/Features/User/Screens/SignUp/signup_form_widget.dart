@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
+import '../../../../Common Widgets/constants.dart';
 import '../../Controllers/signup_controller.dart';
 
 
@@ -167,7 +168,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors.lightBlueAccent,
+                    backgroundColor: Color(color),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
                 onPressed: () {

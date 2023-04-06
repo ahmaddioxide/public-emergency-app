@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Common Widgets/form_footer.dart';
+import '../../Common Widgets/constants.dart';
 import 'login_form_widget.dart';
 
 class LoginScreen extends StatelessWidget  {
@@ -14,7 +15,7 @@ class LoginScreen extends StatelessWidget  {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
 
@@ -33,7 +34,7 @@ class LoginScreen extends StatelessWidget  {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image(image: const AssetImage("assets/logos/emergencyAppLogo.png"), height: Get.height * 0.1),
+                      Image(image: const AssetImage("assets/logos/emergencyAppLogo.png"), height: Get.height * 0.08),
                     ],
                   ),
 

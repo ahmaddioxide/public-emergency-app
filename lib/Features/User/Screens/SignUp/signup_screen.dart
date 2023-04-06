@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:public_emergency_app/Features/Login/login_screen.dart';
 import 'package:public_emergency_app/Features/User/Screens/SignUp/signup_form_widget.dart';
 
@@ -13,7 +14,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: false,
       appBar: AppBar(
-        backgroundColor: Colors.lightBlueAccent,
+        backgroundColor: Color(color),
         centerTitle: true,
         automaticallyImplyLeading: false,
         shape: const RoundedRectangleBorder(
@@ -27,20 +28,20 @@ class SignUpScreen extends StatelessWidget {
               padding: const EdgeInsets.only(bottom: 10),
               child: Row(
                 children: [
-                  SizedBox(width: 30,),
+                  const SizedBox(width: 30,),
                   Center(
                     child: SizedBox.fromSize(
-                      size: Size(36, 36),
+                      size: const Size(36, 36),
                       child: ClipOval(
                         child: Material(
-                          color: Colors.lightBlueAccent,
+                          color: Color(color),
                           child: InkWell(
                             splashColor: Colors.white,
                             onTap: () {  Get.to(() => const LoginScreen());
                             },
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
+                              children: const <Widget>[
                                 Icon(Icons.arrow_back, color: Colors.white, size: 30,),
                               ],
                             ),
@@ -50,14 +51,14 @@ class SignUpScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(width: 80,),
+                  const SizedBox(width: 80,),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image(
                           image: const AssetImage(
                               "assets/logos/emergencyAppLogo.png"),
-                          height: Get.height * 0.1),
+                          height: Get.height * 0.08),
                       Container(
                         margin: const EdgeInsets.only(top: 8),
                         child: Column(

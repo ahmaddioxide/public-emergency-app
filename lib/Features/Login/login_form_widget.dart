@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:public_emergency_app/Common%20Widgets/constants.dart';
 import 'package:public_emergency_app/Features/Response%20Screen/emergencies_screen.dart';
-
 import '../User/Controllers/login_controller.dart';
 import '../User/Screens/Forget Password/forget_password.dart';
 
@@ -16,13 +16,13 @@ class _LoginFormState extends State<LoginForm> {
   final controller = Get.put(LoginController());
   String? email1, password1;
   bool _isObscure = true;
-  final formkey = GlobalKey<FormState>();
+  final formKey = GlobalKey<FormState>();
 
 
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: formkey,
+      key: formKey,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: 30 - 10),
         child: Column(
@@ -42,7 +42,7 @@ class _LoginFormState extends State<LoginForm> {
                 return null;
               },
               decoration: InputDecoration(
-                prefixIcon: Icon(Icons.email_outlined),
+                prefixIcon: const Icon(Icons.email_outlined),
                 labelText: "Email",
                 hintText: "Email",
                 border:
@@ -99,9 +99,9 @@ class _LoginFormState extends State<LoginForm> {
                   onPressed: () {
                     Get.to(() => const ForgetPassword());
                   },
-                  child: const Text(
+                  child:  Text(
                     "Forget Password?",
-                    style: TextStyle(color: Colors.lightBlueAccent),
+                    style: TextStyle(color: Color(color)),
                   )),
             ),
             SizedBox(
@@ -110,31 +110,30 @@ class _LoginFormState extends State<LoginForm> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors.lightBlueAccent,
+                    backgroundColor: Color(color),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
                 onPressed: () async {
                   // if statement will check validation then we will send input data to Login controller for validation
-                  if (formkey.currentState!.validate()) {
+                  if (formKey.currentState!.validate()) {
                     LoginController.instance.loginUser(
                         controller.emailController.text.toString(),
                         controller.passwordController.text.trim());
                   }
 
 
-
                 },
                 child: Text("Log in".toUpperCase()),
               ),
             ),
-            SizedBox(height: 10,),
+            const SizedBox(height: 10,),
             SizedBox(
               width: double.infinity,
               height: 50,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    backgroundColor: Colors.lightBlueAccent,
+                    backgroundColor: Color(color),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20))),
                 onPressed: () async {

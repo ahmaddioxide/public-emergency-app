@@ -8,6 +8,7 @@ import 'package:public_emergency_app/Features/User/Screens/DashBoard/user_dashbo
 import 'package:public_emergency_app/Features/User/Screens/LiveStreaming/sos_page.dart';
 import 'package:public_emergency_app/Features/User/Screens/Profile/profile_screen.dart';
 import 'package:public_emergency_app/Features/User/Screens/location_getter_sender.dart';
+import '../../../Common Widgets/constants.dart';
 import '../../../User.dart';
 import '../../Ambulance/ambulance_dashboard.dart';
 import '../../Police/police_dashboard.dart';
@@ -81,7 +82,7 @@ class _NavBarState extends State<NavBar> {
       bottomNavigationBar: CurvedNavigationBar(
           index: 1,
           backgroundColor: Colors.white,
-          color: Colors.lightBlueAccent,
+          color: Color(color),
           animationDuration: const Duration(milliseconds: 300),
           height: 55,
           onTap: (index) => setState(() => currentIndex = index),
