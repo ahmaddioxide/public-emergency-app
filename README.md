@@ -24,9 +24,7 @@ This is a cross-platform mobile application designed to provide assistance in em
 - Flutter
 - Firebase for real-time data synchronization and user authentication
 - Google Maps API for location data and maps visualization
-
 - GetX
-- EmailJS API
 
 ## Development Timeline
 
