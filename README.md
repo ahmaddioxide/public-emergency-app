@@ -1,4 +1,4 @@
-#Emergency Response Mobile Application
+# Emergency Response Mobile Application
 
 This is a cross-platform mobile application designed to provide assistance in emergencies. The app incorporates specialized features for different user groups such as firefighters, ambulance personnel, police officers, and general users. It leverages the power of Flutter, Firebase, and Google Maps API to deliver accurate and real-time information to both users and responders.
 
