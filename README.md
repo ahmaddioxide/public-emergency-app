@@ -33,8 +33,8 @@ This is a cross-platform mobile application designed to provide assistance in em
 
 ## Installation
 
-- Clone the repository: git clone https://github.com/<username>/emergency-response-app.git
-- Navigate to the project directory: cd emergency-response-app
+- Clone the repository: git clone https://github.com/Atinity/public_emergency_app.git
+- Navigate to the project directory: cd public_emergency_app
 - Install the required packages: flutter pub get
 - Run the app on a connected device or emulator: flutter run
 
