@@ -3,6 +3,7 @@
 This is a cross-platform mobile application designed to provide assistance in emergencies. The app incorporates specialized features for different user groups such as firefighters, ambulance personnel, police officers, and general users. It leverages the power of Flutter, Firebase, and Google Maps API to deliver accurate and real-time information to both users and responders.
 
 **_Mockup_**
+![Emergency_App_Demo (1)](https://user-images.githubusercontent.com/75989502/230830602-cddedb67-9e8c-4f86-aaf0-69132433487f.png)
 
 
 
